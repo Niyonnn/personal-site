@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Neonsss_</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="overlay"></div>
+    
+    <nav>
+        <div class="logo">Neonsss_</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="contact-container">
+        <div class="glass-card contact-wrapper">
+            
+            <div class="contact-info">
+                <h1>Let's Connect</h1>
+                <p class="sub-text">Have a project in mind or just want to chat? Feel free to reach out directly.</p>
+                
+                <div class="info-list">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sagad, Pasig City</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0993-229-8347</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>austrianeon@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="social-icons-contact">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form-section">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+                    <div class="input-group">
+                        <input type="text" name="name" required placeholder=" ">
+                        <label>Your Name</label>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="email" name="email" required placeholder=" ">
+                        <label>Your Email</label>
+                    </div>
+
+                    <div class="input-group">
+                        <textarea name="message" rows="5" required placeholder=" "></textarea>
+                        <label>Message</label>
+                    </div>
+
+                    <button type="submit" class="glow-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
