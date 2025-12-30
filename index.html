@@ -3,35 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home | Neonsss_</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="bg"></div>
     <div class="overlay"></div>
+    
     <nav>
-        <div class="logo" >Neonsss_</div>
+        <div class="logo">Neonsss_</div>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="aboutme.html">About Me</a></li>
             <li><a href="resume.html">Resume</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <div class="row"> 
-    <div class="center-content">
-        <h1>Hello!</h1>
-        <h2>I'm Neon</h2>
-        <p>Currently a BSCS student. An aspiring developer and a future member of tech community.</p>
-        <button class="btn">Inquire</button>
-        <a href="mailto:austrianeon@gmail.com" class="email-link">austrianeon@gmail.com</a>
-    </div>
-        <div class="gif-container">
-        <img src="images/working.gif" alt="kermit working">
-    </div>
+
+    <div class="home-container">
+        <div class="hero-text">
+            <h1>Hello, I'm <span class="highlight">Neon</span></h1>
+            
+            <h2 class="typewriter-text">I am a <span id="typing"></span><span class="cursor">|</span></h2>
+            
+            <p class="intro-blurb">
+                A Computer Science student passionate about building digital solutions. 
+                I turn complex problems into clean, efficient code.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="projects.html" class="glow-btn">View My Work</a>
+                <a href="contact.html" class="outline-btn">Let's Talk</a>
+            </div>
+            
+            <div class="social-mini">
+                <a href="mailto:austrianeon@gmail.com">austrianeon@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="glass-circle">
+                <img src="images/me3.jpg" alt="Neon Austria">
+            </div>
+        </div>
     </div>
 
-    
+    <script>
+        const textElement = document.getElementById('typing');
+        const phrases = ["Developer.", "Student.", "Tech Enthusiast.", "Problem Solver."];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 100 : 200;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Wait before deleting
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+    </script>
 </body>
 </html>

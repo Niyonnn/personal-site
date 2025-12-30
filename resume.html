@@ -8,6 +8,156 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+    /* --- Resume Page Styles --- */
+.resume-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.resume-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* Puts download button on the right */
+}
+
+/* The Paper Look */
+.resume-paper {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95); /* High opacity white for readability */
+    color: #333; /* Dark text for contrast against white paper */
+    padding: 50px;
+    border-radius: 8px; /* Slight rounding like real paper */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Header Styling */
+.resume-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.resume-header h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-info {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.contact-info span i {
+    color: #577eff;
+    margin-right: 5px;
+}
+
+.divider {
+    border: 0;
+    height: 2px;
+    background: #577eff;
+    margin: 20px 0 30px 0;
+}
+
+/* Section Styling */
+.resume-section {
+    margin-bottom: 30px;
+}
+
+.resume-section h2 {
+    font-size: 1.4em;
+    color: #577eff;
+    text-transform: uppercase;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.resume-item {
+    margin-bottom: 20px;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.resume-item h3 {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    color: #222;
+}
+
+.resume-item .role {
+    font-style: italic;
+    color: #666;
+    margin: 0 0 5px 0;
+}
+
+.resume-item .date {
+    font-weight: 600;
+    color: #555;
+    font-size: 0.9em;
+}
+
+/* List Styling */
+.achievements {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #444;
+}
+
+.achievements li {
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+/* Small Skills Grid */
+.skills-grid-small {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-grid-small span {
+    background: #eee;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #555;
+    font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .resume-paper {
+        padding: 20px;
+    }
+    .contact-info {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .resume-header h1 {
+        font-size: 1.8em;
+    }
+}
+</style>
 <body>
     <div class="bg"></div>
     <div class="overlay"></div>
@@ -86,11 +236,11 @@
                 </div>
 
                 <div class="resume-item">
-                    <h3>Leadership & Involvement</h3>
+                    <h3>Excel Certificate at Job Street</h3>
                     <ul class="achievements">
-                        <li><strong>Capstone Research Leader:</strong> Led and coordinated a research team during Senior High School to successfully complete project objectives.</li>
-                        <li><strong>Rotaract Club Member:</strong> Actively engaged in leadership workshops, community service, and personal development initiatives.</li>
-                        <li><strong>Team Leader(CFWP Program):</strong> led all the  members assigned in the same area for CFWP Program of DSWD.</li>
+                        <li><strong>Data Entry & Organization:</strong> Skilled in structuring and managing data efficiently.</li>
+                        <li><strong>Formulas & Functions:</strong> Knowledgeable in applying basic formulas for calculations.</li>
+                        <li><strong>Spreadsheet Formatting:</strong> Experienced in formatting cells, tables, and charts for professional presentations.</li>
                     </ul>
                 </div>
 
