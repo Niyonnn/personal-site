@@ -39,6 +39,16 @@ const projects = [
         src: "images/proj8.png",
         title: "NLMA Product List",
         desc: "A desktop inventory management CRUD application for tracking product codes, names, and quantities.",
+    },
+    {
+        src: "images/proj10.png",
+        title: "Cinema Booking System with Machine Learning Features",
+        desc: "An advanced cinema booking system that incorporates machine learning to recommend movies based on user preferences and other conditions.",
+    },
+    {
+        src: "images/proj11.png",
+        title: "Student Information System for Special Needs Education with Machine Learning",
+        desc: "A specialized student information system designed to manage records and machine learning features for special needs education.",
     }
 ];
 
