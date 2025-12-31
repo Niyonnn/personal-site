@@ -39,6 +39,16 @@ const projects = [
         src: "images/proj8.png",
         title: "NLMA Product List",
         desc: "A desktop inventory management CRUD application for tracking product codes, names, and quantities.",
+    },
+    {
+        src: "images/proj10.png",
+        title: "Cinema Booking System with Machine Learning Features",
+        desc: "An advanced cinema booking system that incorporates machine learning to recommend movies based on user preferences and other conditions.",
+    },
+    {
+        src: "images/proj11.png",
+        title: "Student Information System for Special Needs Education with Machine Learning",
+        desc: "A specialized student information system designed to manage records and machine learning features for special needs education.",
     }
 ];
 
@@ -69,14 +79,30 @@ function updateCarousel() {
     titleEl.textContent = projects[current].title;
     descEl.textContent = projects[current].desc;
 
-    // Center the track
-    const offset = (current) * 340; // Adjust logic to center based on your specific CSS width
-    // Note: You might need to tweak the calculation depending on how exactly you want it centered
-    // For now, let's keep your previous logic style but adjusted for 0-index
-    const centerOffset = (340 * current) - (window.innerWidth / 2) + 170; 
-    // Simpler previous logic attempt:
-    track.style.transform = `translateX(${-((current - 1) * 340)}px)`; 
+    // --- RESPONSIVE FIX STARTS HERE ---
+    
+    // 1. Get the actual width of one card from the DOM
+    const card = document.querySelector('.carousel-img');
+    if (!card) return; // Guard clause in case no images exist
+
+    // 2. Get style to include margins (gap)
+    const style = window.getComputedStyle(card);
+    const marginRight = parseFloat(style.marginRight) || 0;
+    const marginLeft = parseFloat(style.marginLeft) || 0;
+    
+    // 3. Calculate full width of one item
+    const itemWidth = card.offsetWidth + marginRight + marginLeft;
+
+    // 4. Calculate offset to center the "current" image
+    // Formula: (Canvas Width / 2) - (Card Width / 2) - (Position of current card)
+    const containerWidth = document.querySelector('.carousel').offsetWidth;
+    const centerPosition = (containerWidth / 2) - (itemWidth / 2);
+    const targetPosition = centerPosition - (current * itemWidth);
+
+    track.style.transform = `translateX(${targetPosition}px)`;
 }
+
+window.addEventListener('resize', updateCarousel);
 
 // Auto-scroll logic
 let autoScroll = setInterval(nextImage, 3000); // Slower interval for reading text
