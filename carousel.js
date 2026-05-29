@@ -49,6 +49,16 @@ const projects = [
         src: "images/proj11.png",
         title: "Student Information System for Special Needs Education with Machine Learning",
         desc: "A specialized student information system designed to manage records and machine learning features for special needs education.",
+    },
+    {
+        src: "images/proj12.jpg",
+        title: "Laravel Baking Business Website with Chatbot",
+        desc: "A Laravel-based website for a baking business, featuring product presentation, customer inquiry support, and an embedded chatbot.",
+    },
+    {
+        src: "images/proj13.jpg",
+        title: "Arduino Bluetooth RC Robot",
+        desc: "A remote-controlled robot built with Arduino and a Bluetooth receiver for wireless movement control.",
     }
 ];
 
