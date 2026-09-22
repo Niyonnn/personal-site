@@ -1,267 +1,177 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume | Neonsss_</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .resume-container { max-width: 794px; margin: 24px auto 60px; padding: 0 20px; }
+        .resume-actions { display: flex; justify-content: flex-end; margin-bottom: 20px; }
+        .resume-download {
+            padding: 12px 22px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 6px;
+            background: #073b73;
+            color: #fff;
+            font-weight: 700;
+        }
+        .resume-download:hover, .resume-download:focus-visible { background: #0d508f; }
+        .resume-paper {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 1123px;
+            padding: 28px 45px 70px;
+            background: #fff;
+            color: #222;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 1.36;
+        }
+        .resume-paper h1 { margin: 0 0 9px; color: #073b73; font-size: 28px; line-height: 1.25; }
+        .resume-contact { display: grid; grid-template-columns: 90px minmax(0, 1fr); margin: 0 0 10px; }
+        .resume-contact dt { font-weight: 700; }
+        .resume-contact dd { margin: 0; }
+        .resume-paper a { color: inherit; overflow-wrap: anywhere; }
+        .resume-paper a:hover { text-decoration: underline; }
+        .resume-section { margin-top: 10px; }
+        .resume-section h2 {
+            margin: 0 0 6px;
+            padding-bottom: 2px;
+            border-bottom: 1px solid #073b73;
+            color: #073b73;
+            font-size: 16px;
+            line-height: 1.25;
+            text-transform: uppercase;
+        }
+        .resume-summary h2 { margin-bottom: 2px; }
+        .resume-paper p { margin: 0; }
+        .resume-summary p { text-align: justify; }
+        .resume-item + .resume-item { margin-top: 6px; }
+        .resume-item h3 { margin: 0; font-size: inherit; line-height: inherit; }
+        .resume-item-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; column-gap: 16px; }
+        .resume-date { font-weight: 700; }
+        .resume-paper ul { margin: 0; padding-left: 24px; }
+        .resume-website p, .resume-tech p { font-weight: 700; }
+        @media (max-width: 600px) {
+            .resume-container { margin-top: 20px; padding: 0 12px; }
+            .resume-paper { min-height: 0; padding: 26px 22px 36px; }
+            .resume-paper h1 { font-size: 25px; }
+            .resume-contact { grid-template-columns: 75px minmax(0, 1fr); }
+            .resume-summary p { text-align: left; }
+            .resume-section { margin-top: 18px; }
+            .resume-item + .resume-item { margin-top: 12px; }
+        }
+        @page { size: A4; margin: 0; }
+        @media print {
+            html, body { height: auto; overflow: visible; background: #fff; }
+            nav, .bg, .overlay, .resume-actions { display: none; }
+            .resume-container { max-width: none; margin: 0; padding: 0; }
+            .resume-paper {
+                width: 210mm;
+                min-height: 0;
+                padding: 7.4mm 11.9mm 12mm;
+                box-shadow: none;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .resume-item, .resume-contact { break-inside: avoid; }
+            .resume-section h2 { break-after: avoid; }
+        }
+    </style>
 </head>
-<style>
-    /* --- Resume Page Styles --- */
-.resume-container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.resume-actions {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end; /* Puts download button on the right */
-}
-
-/* The Paper Look */
-.resume-paper {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95); /* High opacity white for readability */
-    color: #333; /* Dark text for contrast against white paper */
-    padding: 50px;
-    border-radius: 8px; /* Slight rounding like real paper */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* Header Styling */
-.resume-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.resume-header h1 {
-    font-size: 2.5em;
-    color: #2c3e50;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.contact-info {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    color: #555;
-    font-size: 0.95em;
-}
-
-.contact-info span i {
-    color: red;
-    margin-right: 5px;
-}
-
-.divider {
-    border: 0;
-    height: 2px;
-    background: red;
-    margin: 20px 0 30px 0;
-}
-
-/* Section Styling */
-.resume-section {
-    margin-bottom: 30px;
-}
-
-.resume-section h2 {
-    font-size: 1.4em;
-    color: red;
-    text-transform: uppercase;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
-
-.resume-item {
-    margin-bottom: 20px;
-}
-
-.item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-}
-
-.resume-item h3 {
-    font-size: 1.1em;
-    font-weight: 700;
-    margin: 0 0 5px 0;
-    color: #222;
-}
-
-.resume-item .role {
-    font-style: italic;
-    color: #666;
-    margin: 0 0 5px 0;
-}
-
-.resume-item .date {
-    font-weight: 600;
-    color: #555;
-    font-size: 0.9em;
-}
-
-/* List Styling */
-.achievements {
-    list-style-type: disc;
-    margin-left: 20px;
-    color: #444;
-}
-
-.achievements li {
-    margin-bottom: 5px;
-    line-height: 1.5;
-}
-
-/* Small Skills Grid */
-.skills-grid-small {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.skills-grid-small span {
-    background: #eee;
-    padding: 5px 12px;
-    border-radius: 4px;
-    font-size: 0.9em;
-    color: #555;
-    font-weight: 600;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .resume-paper {
-        padding: 20px;
-    }
-    .contact-info {
-        flex-direction: column;
-        gap: 5px;
-    }
-    .resume-header h1 {
-        font-size: 1.8em;
-    }
-}
-</style>
 <body>
-    <div class="bg"></div>
-    <div class="overlay"></div>
-    
-    <nav>
+    <div class="bg" aria-hidden="true"></div>
+    <div class="overlay" aria-hidden="true"></div>
+    <nav aria-label="Main navigation">
         <div class="logo">Neonsss_</div>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="aboutme.html">About Me</a></li>
-            <li><a href="resume.html" class="active">Resume</a></li>
+            <li><a href="resume.html" class="active" aria-current="page">Resume</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-
-    <div class="resume-container">
-        
+    <main class="resume-container">
         <div class="resume-actions">
-            <a href="images/CV.png" download="Neon_Austria_CV" class="glow-btn">
-                <i class="fas fa-download"></i> Download CV
-            </a>
+            <a href="files/Neon_Austria_CV.pdf" download="Neon_Austria_CV.pdf" class="resume-download">Download CV</a>
         </div>
-
-        <div class="glass-card resume-paper">
-            
-            <header class="resume-header">
-                <h1>NEON LOUIS M. AUSTRIA</h1>
-                <div class="contact-info">
-                    <span><i class="fas fa-map-marker-alt"></i> Sagad, Pasig City</span>
-                    <span><i class="fas fa-phone"></i> 09932298347</span>
-                    <span><i class="fas fa-envelope"></i> austianeon@gmail.com</span>
-                </div>
+        <article class="resume-paper" aria-labelledby="resume-name">
+            <header>
+                <h1 id="resume-name">NEON LOUIS M. AUSTRIA</h1>
+                <dl class="resume-contact">
+                    <dt>Address:</dt><dd>Sagad, Pasig City</dd>
+                    <dt>Phone:</dt><dd><a href="tel:09932298347">09932298347</a></dd>
+                    <dt>Email:</dt><dd><a href="mailto:austianeon@gmail.com">austianeon@gmail.com</a></dd>
+                </dl>
             </header>
-
-            <hr class="divider">
-
-            <section class="resume-section">
+            <section class="resume-section resume-summary">
                 <h2>Summary</h2>
-                <p>Dedicated and hardworking scholar with a strong academic record as a consistent honor student. A recipient of the Pasig City Scholarship, demonstrating commitment to excellence and continuous learning. Actively engaged in community service as a member of the Rotaract Club, fostering leadership, teamwork, and social responsibility. Passionate about personal and professional growth, with a drive to contribute meaningfully in academic and professional environments.</p>
+                <p>A dedicated and hardworking student with a strong academic record and consistent honors. I received Pasig City Scholarship, showing my commitment to learning and excellence. I'm active in community service through the Rotaract Club, where I build leadership and teamwork skills. I’m a former athlete that shows my time-management and dedication and I'm passionate about growing both personally and professionally. I'm also tech-savvy and adaptable, with a good background in digital tools and technology, supported by my Computer Science studies in college.</p>
             </section>
-
             <section class="resume-section">
-                <h2>Education</h2>
-                
+                <h2>Background &amp; Experience</h2>
                 <div class="resume-item">
-                    <h3>Pamantasan ng Lungsod ng Pasig</h3>
-                    <p class="role">Bachelor of Science in Computer Science</p>
-                    <ul class="achievements">
-                        <li>Consistent Dean’s Lister</li>
+                    <div class="resume-item-header">
+                        <h3>Personal Assistant</h3>
+                        <span class="resume-date">Jul 2024 - Dec 2024</span>
+                    </div>
+                    <ul>
+                        <li>Excel Template Creation: Designed and customized Excel templates for data entry, calculations, and reporting.</li>
+                        <li>Data Organization &amp; Sorting: Managed and sorted large datasets to improve accessibility and efficiency.</li>
+                        <li>Document Preparation: Created and formatted essential documents, including reports, letters, and presentations.</li>
                     </ul>
                 </div>
-
+                <div class="resume-item">
+                    <h3>Former Varsity Athlete</h3>
+                    <ul>
+                        <li>Discipline &amp; Time Management: Successfully balanced rigorous daily training schedules with academic responsibilities, maintaining high performance in both areas.</li>
+                        <li>Resilience &amp; Goal Setting: Proven ability to remain focused under pressure and consistently work toward achieving long-term team and individual objectives.</li>
+                    </ul>
+                </div>
+                <div class="resume-item">
+                    <h3>Pasig City Scholar</h3>
+                    <ul>
+                        <li>Consistent Honor Student: Maintained outstanding academic performance and excellence.</li>
+                        <li>Awarded a scholarship for academic achievements and dedication to education.</li>
+                    </ul>
+                </div>
+                <div class="resume-item">
+                    <h3>PLPasig Rotaract Club Member/Scholar/Executive Officer</h3>
+                    <ul>
+                        <li>Active Rotaract Club Member: Engaged in leadership, community service, and personal development initiatives.</li>
+                        <li>Volunteer Work &amp; Outreach: Participated in various social projects, and community programs.</li>
+                        <li>Executive Officer: Proactively helping in making club’s activities and service possible that builds work ethics and leadership.</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="resume-section">
+                <h2>Education</h2>
                 <div class="resume-item">
                     <h3>Rizal High School</h3>
-                    <p class="role">Science, Technology, Engineering, and Mathematics (STEM)</p>
-                    <ul class="achievements">
+                    <p>Science, Technology, Engineering, and Mathematics (Strand)</p>
+                    <ul>
                         <li>Graduated with Honors</li>
                         <li>Capstone Research Leader</li>
                     </ul>
                 </div>
-            </section>
-
-            <section class="resume-section">
-                <h2>Background & Experience</h2>
-                
                 <div class="resume-item">
-                    <div class="item-header">
-                        <h3>Personal Assistant</h3>
-                        <span class="date">Jul 2024 - Dec 2024</span>
-                    </div>
-                    <ul class="achievements">
-                        <li><strong>Excel Template Creation:</strong> Designed and customized Excel templates for data entry, calculations, and reporting.</li>
-                        <li><strong>Data Organization:</strong> Managed and sorted large datasets to improve accessibility and efficiency.</li>
-                        <li><strong>Document Preparation:</strong> Created and formatted essential documents, including reports, letters, and presentations.</li>
-                    </ul>
-                </div>
-
-                <div class="resume-item">
-                    <h3>Former Athlete</h3>
-                    <ul class="achievements">
-                        <li><strong>Discipline & Time Management:</strong> Successfully balanced rigorous daily training schedules with academic responsibilities, maintaining high performance in both areas.</li>
-                        <li><strong>Resilience & Goal Setting:</strong> Proven ability to remain focused under pressure and consistently work toward achieving long-term team and individual objectives.</li>
-                    </ul>
-                </div>
-
-                <div class="resume-item">
-                    <h3>Pasig City Scholar</h3>
-                    <ul class="achievements">
-                        <li>Consistent Honor Student maintained outstanding academic performance.</li>
-                        <li>Awarded scholarship for academic achievements and dedication.</li>
-                    </ul>
+                    <h3>Pamantasan ng Lungsod ng Pasig</h3>
+                    <p>Bachelor of Science in Computer Science</p>
+                    <ul><li>Consistent Dean’s /President’s lister</li></ul>
                 </div>
             </section>
-
-            <section class="resume-section">
-                <h2>Additional Information</h2>
-                <div class="skills-grid-small">
-                    <span>Digital Native & "Techy"</span>
-                    <span>Proficient in Productivity Tools</span>
-                    <span>Active Rotaract Club Member</span>
-                </div>
+            <section class="resume-section resume-website">
+                <h2>Online Website</h2>
+                <p>Link : <a href="https://niyonnn.github.io/personal-site/index.html">https://niyonnn.github.io/personal-site/index.html</a></p>
             </section>
-
-        </div>
-    </div>
+            <section class="resume-section resume-tech">
+                <h2>Tech Stack</h2>
+                <p>PHP, Python, SQL, Git, HTML/CSS, JavaScript, Blender</p>
+            </section>
+        </article>
+    </main>
 </body>
 </html>

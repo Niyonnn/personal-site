@@ -1104,3 +1104,79 @@ footer p {
         width: 100%; /* Ensure full width */
     }
 }
+/* Paginated About Me gallery */
+.gallery-section { min-width: 0; }
+.gallery-section .photo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.gallery-section .photo-grid img[hidden],
+.gallery-pagination[hidden] { display: none; }
+.gallery-section .photo-grid.is-paginated {
+    grid-template-rows: repeat(2, 200px);
+}
+.gallery-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+.gallery-pagination { margin-top: 24px; }
+.gallery-pagination button {
+    min-width: 120px;
+    min-height: 44px;
+    margin: 0;
+    padding: 12px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 220ms ease, border-color 220ms ease,
+        color 220ms ease, opacity 220ms ease, transform 220ms ease,
+        box-shadow 220ms ease;
+}
+.gallery-pagination button:hover:not(:disabled) {
+    background: #ff5e57;
+    border-color: #ff5e57;
+    color: #171717;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(255, 94, 87, 0.22);
+}
+.gallery-pagination button:active:not(:disabled) {
+    transform: translateY(0) scale(0.97);
+    box-shadow: none;
+}
+.gallery-pagination button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+.gallery-pagination button:disabled { opacity: 0.4; cursor: default; }
+.gallery-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+.gallery-status:empty { display: none; }
+@media (max-width: 600px) {
+    .about-container { padding: 12px; }
+    .about-container .glass-card { box-sizing: border-box; width: 100%; padding: 20px; }
+    .about-container > *, .about-container .content-side { min-width: 0; }
+    .gallery-section .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .gallery-section .photo-grid img { height: 180px; }
+    .gallery-section .photo-grid.is-paginated { grid-template-rows: repeat(3, 180px); }
+    .gallery-pagination { gap: 10px; }
+    .gallery-pagination button { min-width: 0; flex: 1; padding: 12px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .gallery-pagination button, .gallery-section .photo-grid img { transition: none; }
+    .gallery-pagination button:hover:not(:disabled),
+    .gallery-pagination button:active:not(:disabled) { transform: none; }
+}

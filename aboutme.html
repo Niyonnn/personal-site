@@ -6,6 +6,7 @@
     <title>About Me | Neonsss_</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="gallery.js" defer></script>
 </head>
 <body>
     <div class="bg"></div>
@@ -54,7 +55,7 @@
 
             <div class="glass-card gallery-section">
                 <h2>Life Behind the Screen</h2>
-                <div class="photo-grid">
+                <div class="photo-grid" id="life-gallery">
                     <img src="images/me1.jpg" alt="Neon">
                     <img src="images/me2.jpg" alt="Neon Badminton">
                     <img src="images/me3.jpg" alt="Neon Formal">
@@ -64,7 +65,24 @@
                     <img src="images/me7.jpg" alt="Neon Travel">
                     <img src="images/me8.jpg" alt="Neon Travel">
                     <img src="images/me9.jpg" alt="Neon Travel">
+                    <img src="images/me10.jpg" alt="Life behind the screen, photo 10" loading="lazy">
+                    <img src="images/me11.jpg" alt="Life behind the screen, photo 11" loading="lazy">
+                    <img src="images/me12.jpg" alt="Life behind the screen, photo 12" loading="lazy">
+                    <img src="images/me13.jpg" alt="Life behind the screen, photo 13" loading="lazy">
+                    <img src="images/me14.jpg" alt="Life behind the screen, photo 14" loading="lazy">
+                    <img src="images/me15.jpg" alt="Life behind the screen, photo 15" loading="lazy">
+                    <img src="images/me16.jpg" alt="Life behind the screen, photo 16" loading="lazy">
+                    <img src="images/me17.jpg" alt="Life behind the screen, photo 17" loading="lazy">
+                    <img src="images/me18.jpg" alt="Life behind the screen, photo 18" loading="lazy">
+                    <img src="images/me19.jpg" alt="Life behind the screen, photo 19" loading="lazy">
+                    <img src="images/me20.jpg" alt="Life behind the screen, photo 20" loading="lazy">
+                    <img src="images/me21.jpg" alt="Life behind the screen, photo 21" loading="lazy">
                 </div>
+                <div class="gallery-pagination" role="group" aria-label="Photo gallery pagination" hidden>
+                    <button type="button" class="gallery-previous" aria-controls="life-gallery">Previous</button>
+                    <button type="button" class="gallery-next" aria-controls="life-gallery">Next</button>
+                </div>
+                <p class="gallery-status" role="status" aria-live="polite" aria-atomic="true"></p>
             </div>
         </div>
     </div>
